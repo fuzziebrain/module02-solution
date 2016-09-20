@@ -3,7 +3,7 @@
 
   angular.module('ShoppingListCheckOff', ['ngMaterial'])
     .config(function($mdThemingProvider, $mdIconProvider) {
-      $mdThemingProvider.theme('mytheme').primaryPalette('blue').accentPalette('blue-grey');
+      $mdThemingProvider.theme('mytheme').primaryPalette('brown').accentPalette('green');
     })
     .service('shopper', ShoppingListCheckOffService)
     .controller('ToBuyShoppingController', ToBuyShoppingController)
