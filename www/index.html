@@ -29,7 +29,7 @@
               <md-list>
                 <md-list-item ng-repeat="item in shoppingList" class="md-1-line">
                   <!-- <md-checkbox ng-click="addToInventory($index)" aria-label="Bought {{ item.quantity }} {{ item.name }}"></md-checkbox> -->
-                  <div class="md-list-item-text">Buy {{ item.quantity }} {{ item.name }} <md-button class="buy-button" ng-click="addToInventory($index)" aria-label="Bought"><i class="fa fa-check-circle"></i> Bought</md-button></div>
+                  <div class="md-list-item-text">Buy {{ item.quantity }} {{ item.name }} <md-button class="md-accent md-raised" ng-click="addToInventory($index)" aria-label="Bought"><i class="fa fa-check-circle"></i> Bought</md-button></div>
                 </md-list-item>
               </md-list>
             </div>
@@ -50,7 +50,7 @@
         </div>
       </md-content>
     </div>
-    
+
     <!-- load scripts -->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
