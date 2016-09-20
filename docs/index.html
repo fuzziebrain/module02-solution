@@ -23,29 +23,29 @@
           <h2>Shopping List Check Off</h2>
         </div>
         <div layout="row" layout-xs="column">
-          <div class="md-padding" ng-controller="ToBuyShoppingController" flex>
+          <div class="md-padding" ng-controller="ToBuyShoppingController as toBuy" flex>
             <div>
               <h3><i class="fa fa-shopping-cart" aria-hidden="true"></i> To Buy:</h3>
               <md-list>
-                <md-list-item ng-repeat="item in shoppingList" class="md-1-line">
+                <md-list-item ng-repeat="item in toBuy.shoppingList" class="md-1-line">
                   <!-- <md-checkbox ng-click="addToInventory($index)" aria-label="Bought {{ item.quantity }} {{ item.name }}"></md-checkbox> -->
-                  <div class="md-list-item-text">Buy {{ item.quantity }} {{ item.name }} <md-button class="md-accent md-raised" ng-click="addToInventory($index)" aria-label="Bought"><i class="fa fa-check-circle"></i> Bought</md-button></div>
+                  <div class="md-list-item-text">Buy {{ item.quantity }} {{ item.name }} <md-button class="md-accent md-raised" ng-click="toBuy.addToInventory($index)" aria-label="Bought"><i class="fa fa-check-circle"></i> Bought</md-button></div>
                 </md-list-item>
               </md-list>
             </div>
-            <div ng-if="shoppingList.length <= 0" class="emptyMessage"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Everything is bought!</div>
+            <div ng-if="toBuy.shoppingList.length <= 0" class="emptyMessage"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Everything is bought!</div>
           </div>
-          <div class="md-padding" ng-controller="AlreadyBoughtShoppingController" flex>
+          <div class="md-padding" ng-controller="AlreadyBoughtShoppingController as bought" flex>
             <div>
               <h3><i class="fa fa-list" aria-hidden="true"></i> Already Bought:</h3>
               <md-list>
-                <md-list-item ng-repeat="item in inventoryList" class="md-1-line">
+                <md-list-item ng-repeat="item in bought.inventoryList" class="md-1-line">
                   <!-- <md-checkbox></md-checkbox> -->
                   <div class="md-list-item-text">Bought {{ item.quantity }} {{ item.name }}</div>
                 </md-list-item>
               </md-list>
             </div>
-            <div ng-if="inventoryList.length <= 0" class="emptyMessage"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Nothing bought yet.</div>
+            <div ng-if="bought.inventoryList.length <= 0" class="emptyMessage"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Nothing bought yet.</div>
           </div>
         </div>
       </md-content>

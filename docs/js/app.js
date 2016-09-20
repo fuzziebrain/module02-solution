@@ -9,8 +9,8 @@
     .controller('ToBuyShoppingController', ToBuyShoppingController)
     .controller('AlreadyBoughtShoppingController', AlreadyBoughtShoppingController);
 
-  ToBuyShoppingController.$inject = ['$scope', 'shopper'];
-  AlreadyBoughtShoppingController.$inject = ['$scope', 'shopper'];
+  ToBuyShoppingController.$inject = ['shopper'];
+  AlreadyBoughtShoppingController.$inject = ['shopper'];
 
   function ShoppingListCheckOffService() {
     var service = this;
@@ -55,15 +55,19 @@
     }
   }
 
-  function ToBuyShoppingController($scope, shopper) {
-    $scope.shoppingList = shopper.getShoppingList();
+  function ToBuyShoppingController(shopper) {
+    var toBuy = this;
 
-    $scope.addToInventory = function(index) {
+    toBuy.shoppingList = shopper.getShoppingList();
+
+    toBuy.addToInventory = function(index) {
       shopper.addToInventory(index);
     }
   }
 
-  function AlreadyBoughtShoppingController($scope, shopper) {
-    $scope.inventoryList = shopper.getInventoryList();
+  function AlreadyBoughtShoppingController(shopper) {
+    var bought = this;
+
+    bought.inventoryList = shopper.getInventoryList();
   }
 })();
